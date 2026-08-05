@@ -1,199 +1,197 @@
 <template>
   <div class="home">
-    <!-- 1. Hero — emotion + conversion -->
-    <section class="hero" aria-label="Petsitively hero">
-      <div class="hero__backdrop" aria-hidden="true" />
-      <div class="hero__veil" aria-hidden="true" />
-
-      <div class="hero__content">
-        <p class="hero__brand">Petsitively</p>
-        <h1 class="hero__title">Because They're Family.</h1>
-        <p class="hero__lead">
-          Thoughtfully selected products that make everyday life easier, cleaner and
-          happier—for both pets and the people who love them.
-        </p>
-        <div class="hero__actions">
-          <div class="hero__primary">
-            <a href="#best-sellers" class="hero__cta">Shop Best Sellers</a>
-            <p class="hero__trust">
-              Thoughtfully selected products. No clutter. No gimmicks.
-            </p>
+    <section class="hero-section" aria-label="Petsitively hero">
+      <div class="hero-main">
+        <div class="hero-content">
+          <div class="hero-content__logo" aria-label="Petsitively">
+            <span class="hero-content__logo-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+                <path
+                  d="M16 28c-1.2-1.1-6.8-5.3-9.4-9.4C4.2 14.7 4 11.2 6.1 9.2c1.7-1.6 4.3-1.5 6.1.3L16 13l3.8-3.5c1.8-1.8 4.4-1.9 6.1-.3 2.1 2 1.9 5.5-.5 9.4C22.8 22.7 17.2 26.9 16 28Z"
+                  fill="currentColor"
+                />
+                <circle cx="8.2" cy="7.2" r="2.4" fill="currentColor" />
+                <circle cx="23.8" cy="7.2" r="2.4" fill="currentColor" />
+                <circle cx="5.6" cy="13.2" r="2.1" fill="currentColor" />
+                <circle cx="26.4" cy="13.2" r="2.1" fill="currentColor" />
+              </svg>
+            </span>
+            <span class="hero-content__logo-wordmark">Petsitively</span>
           </div>
-          <NuxtLink to="/about" class="hero__cta hero__cta--secondary">Our Story</NuxtLink>
-        </div>
-      </div>
 
-      <a href="#trust" class="hero__scroll" aria-label="Scroll to next section">
-        <span class="hero__scroll-label">Scroll</span>
-        <span class="hero__scroll-chevron" aria-hidden="true" />
-      </a>
-    </section>
-
-    <!-- 2. Trust bar -->
-    <section id="trust" class="trust-bar" aria-label="Why shop with Petsitively">
-      <div class="container trust-bar__inner">
-        <div class="trust-bar__item">
-          <span class="trust-bar__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-              <path
-                d="M3 7h11v10H3V7Z"
-                stroke="currentColor"
-                stroke-width="1.7"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M14 10h4.2L21 13v4h-7v-7Z"
-                stroke="currentColor"
-                stroke-width="1.7"
-                stroke-linejoin="round"
-              />
-              <circle cx="7" cy="18.5" r="1.5" fill="currentColor" />
-              <circle cx="17.5" cy="18.5" r="1.5" fill="currentColor" />
-            </svg>
-          </span>
-          <span class="trust-bar__text">Fast Shipping</span>
-        </div>
-
-        <div class="trust-bar__item">
-          <span class="trust-bar__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-              <path
-                d="M4 7.5h11l3 3V19a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8.5a1 1 0 0 1 1-1Z"
-                stroke="currentColor"
-                stroke-width="1.7"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M9 12.5h4M11 10.5v4"
-                stroke="currentColor"
-                stroke-width="1.7"
-                stroke-linecap="round"
-              />
-              <path
-                d="M15 4.5 18 7.5"
-                stroke="currentColor"
-                stroke-width="1.7"
-                stroke-linecap="round"
-              />
-            </svg>
-          </span>
-          <span class="trust-bar__text">30-Day Returns</span>
-        </div>
-
-        <div class="trust-bar__item">
-          <span class="trust-bar__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-              <rect
-                x="4"
-                y="10"
-                width="16"
-                height="10"
-                rx="2"
-                stroke="currentColor"
-                stroke-width="1.7"
-              />
-              <path
-                d="M8 10V7.5a4 4 0 0 1 8 0V10"
-                stroke="currentColor"
-                stroke-width="1.7"
-                stroke-linecap="round"
-              />
-              <circle cx="12" cy="15" r="1.3" fill="currentColor" />
-            </svg>
-          </span>
-          <span class="trust-bar__text">Secure Checkout</span>
-        </div>
-
-        <div class="trust-bar__item">
-          <span class="trust-bar__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
-              <path
-                d="M12 20s-6.5-3.8-8.8-7.7C1.4 9.4 2.5 6.2 5.4 5.3c1.7-.5 3.5.1 4.6 1.5L12 9l2-2.2c1.1-1.4 2.9-2 4.6-1.5 2.9.9 4 4.1 2.2 7C18.5 16.2 12 20 12 20Z"
-                stroke="currentColor"
-                stroke-width="1.7"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </span>
-          <span class="trust-bar__text">Loved by Pet Parents</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. Shop by Problem — conversion via real needs -->
-    <section
-      id="shop-by-problem"
-      v-reveal
-      class="shop-problems"
-      aria-labelledby="shop-problems-heading"
-    >
-      <div class="container">
-        <div class="section-intro">
-          <p class="section-intro__eyebrow">Start here</p>
-          <h2 id="shop-problems-heading">Shop by the problem you want solved</h2>
-          <p class="section-intro__lead">
-            Skip endless aisles. Find what actually helps your pet—and your day.
+          <h1 class="hero-content__title">Because They're Family.</h1>
+          <p class="hero-content__lead">
+            Thoughtfully selected products that make everyday life easier, cleaner and
+            happier—for both pets and the people who love them.
           </p>
+
+          <div class="hero-content__actions">
+            <a href="#best-sellers" class="btn btn--primary hero-content__btn-primary">
+              Shop Best Sellers
+            </a>
+            <NuxtLink to="/about" class="btn hero-content__btn-secondary">Our Story</NuxtLink>
+          </div>
         </div>
 
-        <div v-reveal.stagger class="shop-problems__grid">
-          <NuxtLink
-            v-for="item in problemLinks"
-            :key="item.title"
-            :to="item.to"
-            class="shop-problems__item"
-          >
-            <span class="shop-problems__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+        <ul class="trust-badges" aria-label="Why shop with Petsitively">
+          <li class="trust-badges__item">
+            <span class="trust-badges__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
                 <path
-                  v-if="item.icon === 'bowl'"
-                  d="M4 11.5h16v1.2A6.5 6.5 0 0 1 13.5 19h-3A6.5 6.5 0 0 1 4 12.7v-1.2ZM6 11.5V9.8A6 6 0 0 1 12 4a6 6 0 0 1 6 5.8v1.7"
+                  d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"
                   stroke="currentColor"
-                  stroke-width="1.7"
+                  stroke-width="1.6"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <path
-                  v-else-if="item.icon === 'moon'"
-                  d="M14.5 4.2A7.5 7.5 0 1 0 19.8 14 6.2 6.2 0 1 1 14.5 4.2Z"
+                  d="M12 15.2 9.9 13.3a1.55 1.55 0 0 1 0-2.25 1.7 1.7 0 0 1 2.35 0l.15.14.15-.14a1.7 1.7 0 0 1 2.35 0 1.55 1.55 0 0 1 0 2.25L12 15.2Z"
                   stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linejoin="round"
-                />
-                <path
-                  v-else-if="item.icon === 'toy'"
-                  d="M12 4.5v15M4.5 12h15M7.1 7.1l9.8 9.8M16.9 7.1 7.1 16.9"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                />
-                <path
-                  v-else-if="item.icon === 'brush'"
-                  d="M7 16.5 16.5 7M9.2 18.7l-2.6-2.6a1.2 1.2 0 0 1 0-1.7l1.3-1.3 4.3 4.3-1.3 1.3a1.2 1.2 0 0 1-1.7 0ZM14 5.5l4.5 4.5"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  v-else
-                  d="M12 4.2c1.3 2.2 4.8 3.2 4.8 6.4A4.8 4.8 0 0 1 12 15.4 4.8 4.8 0 0 1 7.2 10.6c0-3.2 3.5-4.2 4.8-6.4ZM8 18.5h8"
-                  stroke="currentColor"
-                  stroke-width="1.7"
+                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
               </svg>
             </span>
-            <span class="shop-problems__title">{{ item.title }}</span>
-            <span class="shop-problems__desc">{{ item.description }}</span>
-            <span class="shop-problems__cta" aria-hidden="true">Shop →</span>
-          </NuxtLink>
-        </div>
+            <span class="trust-badges__text">Pet Parent Approved</span>
+          </li>
+          <li class="trust-badges__item">
+            <span class="trust-badges__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.36A1 1 0 0 0 17.52 8H14"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle cx="17" cy="18" r="2" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="7" cy="18" r="2" stroke="currentColor" stroke-width="1.6" />
+              </svg>
+            </span>
+            <span class="trust-badges__text">Free Shipping over $49</span>
+          </li>
+          <li class="trust-badges__item">
+            <span class="trust-badges__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect
+                  x="3.5"
+                  y="5"
+                  width="17"
+                  height="15"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+                <path
+                  d="M8 3.25v3.5M16 3.25v3.5M3.5 10h17"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M14.25 14.25v3.5M12.5 16h3.5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <span class="trust-badges__text">30-Day Happiness Guarantee</span>
+          </li>
+          <li class="trust-badges__item">
+            <span class="trust-badges__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect
+                  x="5"
+                  y="11"
+                  width="14"
+                  height="10"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+                <path
+                  d="M8 11V7.5a4 4 0 0 1 8 0V11"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <span class="trust-badges__text">Secure Checkout</span>
+          </li>
+        </ul>
       </div>
+
+      <nav
+        id="shop-by-problem"
+        class="problem-solver-bar"
+        aria-label="Shop by the problem you want solved"
+      >
+        <NuxtLink
+          v-for="item in problemLinks"
+          :key="item.title"
+          :to="item.to"
+          class="problem-solver-bar__card"
+        >
+          <span class="problem-solver-bar__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+              <path
+                v-if="item.icon === 'bowl'"
+                d="M4.5 12h15v.8A6 6 0 0 1 13.6 18.5h-3.2A6 6 0 0 1 4.5 12.8V12ZM7 12V10a5 5 0 0 1 10 0v2M9 5.2c.3-.7.6-1.2 1-1.2s.7.5 1 1.2M13 5.2c.3-.7.6-1.2 1-1.2s.7.5 1 1.2"
+                stroke="currentColor"
+                stroke-width="1.55"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                v-else-if="item.icon === 'moon'"
+                d="M14.2 4.5A7.2 7.2 0 1 0 19.5 14 5.8 5.8 0 1 1 14.2 4.5ZM17.2 5.8c.2-.5.4-.9.7-.9s.5.4.7.9"
+                stroke="currentColor"
+                stroke-width="1.55"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                v-else-if="item.icon === 'sparkle'"
+                d="M12 3.5 13.4 9l5.6 1.4-5.6 1.4L12 17l-1.4-5.2L5 10.4l5.6-1.4L12 3.5ZM18.5 15.5 19 17l1.5.5L19 18l-.5 1.5-.5-1.5L16.5 17l1.5-.5.5-1.5Z"
+                stroke="currentColor"
+                stroke-width="1.45"
+                stroke-linejoin="round"
+              />
+              <path
+                v-else-if="item.icon === 'bath'"
+                d="M4.5 14.5h15v2.2a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-2.2ZM6 14.5V11a3.5 3.5 0 0 1 3.5-3.5H12M12.5 4.5v3M11 6h3"
+                stroke="currentColor"
+                stroke-width="1.55"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                v-else
+                d="M7.5 10.5c0-2.4 1.9-4 4.5-4s4.5 1.6 4.5 4c0 2.8-2.1 4.2-4.5 6.3-2.4-2.1-4.5-3.5-4.5-6.3ZM5.5 13c1.2.3 2 .2 2.8-.4M18.5 13c-1.2.3-2 .2-2.8-.4"
+                stroke="currentColor"
+                stroke-width="1.55"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="problem-solver-bar__title">{{ item.title }}</span>
+          <span class="problem-solver-bar__desc">{{ item.description }}</span>
+        </NuxtLink>
+      </nav>
     </section>
 
-    <!-- 4. Best Sellers — conversion -->
+    <!-- Best Sellers — conversion -->
     <section
       id="best-sellers"
       class="best-sellers"
@@ -384,8 +382,8 @@ import { getTopFaqs } from '~/utils/faqData'
 const config = useRuntimeConfig()
 const topFaqs = getTopFaqs(4)
 
-// Local lifestyle hero — owner with dog and cat outdoors
-const heroImage = '/images/hero-lifestyle.png'
+// Full-bleed lifestyle hero — owner with dog and cat outdoors
+const heroImage = '/images/hero-bg.jpg'
 
 // Lifestyle: owner and dog outdoors together
 const whyImage =
@@ -455,19 +453,19 @@ const problemCatalog = [
     title: 'Zoomies & boredom',
     description: 'Toys that burn energy and keep curious minds busy.',
     slug: 'toys',
-    icon: 'toy',
+    icon: 'sparkle',
   },
   {
     title: 'Shedding & baths',
     description: 'Grooming that feels gentler on skin, coats, and your schedule.',
     slug: 'grooming',
-    icon: 'brush',
+    icon: 'bath',
   },
   {
     title: 'Picky appetites',
     description: 'Nourishing options chosen to support happier, steadier eating.',
     slug: 'food',
-    icon: 'leaf',
+    icon: 'treat',
   },
 ]
 
@@ -479,20 +477,29 @@ usePageSeo({
   path: '/',
 })
 
-useHead({
-  link: [
-    {
-      rel: 'preload',
-      as: 'image',
-      href: heroImage,
-      fetchpriority: 'high',
-    },
-  ],
-})
+async function fetchList(path, query) {
+  try {
+    return await $fetch(`${config.public.apiBase}${path}`, {
+      timeout: 3500,
+      query,
+    })
+  } catch {
+    // Backend offline must not block the page
+    return { data: [] }
+  }
+}
 
-const { data: categoriesData } = await useFetch(`${config.public.apiBase}/api/categories`, {
-  key: 'home-categories',
-})
+// Run in parallel so a slow API still paints the hero quickly
+const [{ data: categoriesData }, { data, pending, error }] = await Promise.all([
+  useAsyncData('home-categories', () => fetchList('/api/categories'), {
+    default: () => ({ data: [] }),
+  }),
+  useAsyncData(
+    'home-products',
+    () => fetchList('/api/products', { sort: 'newest' }),
+    { default: () => ({ data: [] }) }
+  ),
+])
 
 const categories = computed(() => categoriesData.value?.data ?? [])
 
@@ -507,11 +514,6 @@ const problemLinks = computed(() =>
     }
   })
 )
-
-const { data, pending, error } = await useFetch(`${config.public.apiBase}/api/products`, {
-  key: 'home-products',
-  query: { sort: 'newest' },
-})
 
 const products = computed(() => data.value?.data ?? [])
 
