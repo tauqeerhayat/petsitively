@@ -305,8 +305,8 @@
     gap: 1.75rem;
 
     @include mq(md) {
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 2rem;
+      grid-template-columns: 1.35fr repeat(4, minmax(0, 1fr));
+      gap: 1.75rem 1.5rem;
     }
   }
 

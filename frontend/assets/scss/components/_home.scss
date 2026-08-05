@@ -1,38 +1,58 @@
 @use '../abstracts' as *;
 
-.home {
-  &__catalog {
-    padding-top: 2.5rem;
-    padding-bottom: 1rem;
+// Shared section intro — one job per section
+.section-intro {
+  margin-bottom: 1.75rem;
+  max-width: 36rem;
+
+  &--row {
+    max-width: none;
   }
 
-  &__catalog-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 0.5rem 1rem;
-    margin-bottom: 1rem;
+  &__eyebrow {
+    margin: 0 0 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-brand);
   }
 
-  &__catalog-title {
-    margin: 0;
+  h2 {
+    margin: 0 0 0.55rem;
     font-family: var(--font-display);
-    font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--color-ink);
   }
 
-  &__catalog-meta {
+  &__lead {
     margin: 0;
     color: var(--color-muted);
-    font-weight: 600;
-    font-size: 0.92rem;
+    font-size: 1.02rem;
+    line-height: 1.6;
   }
+}
+
+// Screen-reader only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .trust-bar {
   border-bottom: 1px solid var(--color-border);
   background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(8px);
+  scroll-margin-top: 5rem;
 
   &__inner {
     display: grid;
@@ -76,7 +96,123 @@
   }
 }
 
-.mission {
+// Shop by Problem — need-led navigation, not category tiles
+.shop-problems {
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+
+  &__grid {
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--color-border);
+
+    @include mq(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include mq(lg) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 1.35rem 1.15rem;
+    border-bottom: 1px solid var(--color-border);
+    color: inherit;
+    text-decoration: none;
+    transition:
+      background $duration-fast $ease-soft,
+      padding-left $duration-base $ease-out;
+
+    @include mq(md) {
+      border-right: 1px solid var(--color-border);
+
+      &:nth-child(2n) {
+        border-right: none;
+      }
+    }
+
+    @include mq(lg) {
+      &:nth-child(2n) {
+        border-right: 1px solid var(--color-border);
+      }
+
+      &:nth-child(3n) {
+        border-right: none;
+      }
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(31, 107, 74, 0.05);
+      padding-left: 1.35rem;
+
+      .shop-problems__cta {
+        color: var(--color-brand-dark);
+        gap: 0.45rem;
+      }
+
+      .shop-problems__icon {
+        color: var(--color-brand-dark);
+      }
+    }
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    margin-bottom: 0.15rem;
+    border-radius: 0.75rem;
+    background: rgba(31, 107, 74, 0.08);
+    color: var(--color-brand);
+    transition: color $duration-fast $ease-soft;
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+
+  &__desc {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    flex: 1;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.35rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-brand);
+    transition:
+      gap $duration-fast $ease-soft,
+      color $duration-fast $ease-soft;
+  }
+}
+
+.best-sellers {
+  padding: 2.75rem 0 3rem;
+  scroll-margin-top: 5rem;
+  background:
+    linear-gradient(180deg, rgba(31, 107, 74, 0.04), transparent 45%),
+    var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+// Why Petsitively
+.why {
   background: var(--color-bg-accent);
   border-bottom: 1px solid var(--color-border);
   padding: 2.75rem 0;
@@ -134,11 +270,43 @@
     color: var(--color-ink);
   }
 
-  p {
+  &__lead {
     margin: 0 0 1.25rem;
     color: var(--color-muted);
     font-size: 1.05rem;
     line-height: 1.7;
+  }
+
+  &__list {
+    margin: 0 0 1.35rem;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.85rem;
+
+    li {
+      color: var(--color-muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+      padding-left: 1.1rem;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.55em;
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 50%;
+        background: var(--color-brand);
+      }
+
+      strong {
+        color: var(--color-ink);
+        font-weight: 700;
+      }
+    }
   }
 
   &__link {
@@ -161,14 +329,77 @@
 
 .testimonials {
   padding: 3rem 0 3.5rem;
-  border-top: 1px solid var(--color-border);
-  background:
-    linear-gradient(180deg, rgba(31, 107, 74, 0.04), transparent 40%),
-    var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
 
-  &__intro {
-    margin-bottom: 1.5rem;
-    max-width: 36rem;
+  &__grid {
+    display: grid;
+    gap: 1.5rem;
+
+    @include mq(md) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+}
+
+// Reviews without card chrome — quotes, not marketplace tiles
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0;
+  height: 100%;
+  border-left: 2px solid rgba(31, 107, 74, 0.25);
+  padding-left: 1.1rem;
+
+  &__stars {
+    margin: 0;
+    color: var(--color-accent);
+    letter-spacing: 0.08em;
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+
+  &__quote {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1.02rem;
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  &__name {
+    margin: 0;
+    font-weight: 700;
+    color: var(--color-ink);
+    font-size: 0.95rem;
+  }
+
+  &__meta {
+    margin: -0.25rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.82rem;
+  }
+}
+
+.newsletter {
+  padding: 2.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+  background:
+    linear-gradient(135deg, rgba(31, 107, 74, 0.1), transparent 55%),
+    linear-gradient(180deg, var(--color-bg-accent), #eef5f0);
+
+  &__inner {
+    display: grid;
+    gap: 1.5rem;
+    align-items: end;
+
+    @include mq(md) {
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
   }
 
   &__eyebrow {
@@ -181,53 +412,74 @@
   }
 
   h2 {
-    margin: 0;
+    margin: 0 0 0.55rem;
     font-family: var(--font-display);
     font-size: clamp(1.7rem, 3vw, 2.35rem);
     letter-spacing: -0.02em;
+    line-height: 1.15;
     color: var(--color-ink);
   }
 
-  &__grid {
-    display: grid;
-    gap: 1rem;
-
-    @include mq(md) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.25rem;
-    }
-  }
-}
-
-.testimonial-card {
-  @include card-surface;
-  padding: 1.25rem 1.3rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-
-  &__stars {
-    margin: 0;
-    color: var(--color-accent);
-    letter-spacing: 0.08em;
-    font-size: 1rem;
-    line-height: 1;
-  }
-
-  &__quote {
+  &__lead {
     margin: 0;
     color: var(--color-muted);
-    font-size: 1rem;
-    line-height: 1.65;
-    flex: 1;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    max-width: 28rem;
   }
 
-  &__name {
-    margin: 0;
-    font-weight: 700;
+  &__form {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.95rem 1.1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-surface);
     color: var(--color-ink);
-    font-size: 0.95rem;
+    font: inherit;
+    font-size: 1rem;
+
+    &::placeholder {
+      color: #8a9a90;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-brand);
+      box-shadow: 0 0 0 3px rgba(31, 107, 74, 0.15);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+
+    @include mq(sm) {
+      width: auto;
+      justify-self: start;
+      min-width: 10rem;
+    }
+  }
+
+  &__feedback {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    &.is-success {
+      color: var(--color-brand-dark);
+    }
+
+    &.is-error {
+      color: var(--color-danger);
+    }
   }
 }
 
@@ -236,7 +488,8 @@
   isolation: isolate;
   display: grid;
   align-items: end;
-  min-height: min(92vh, 920px);
+  // Slightly shorter than full VH so cover crop is gentler on faces
+  min-height: min(78vh, 760px);
   width: 100%;
   overflow: hidden;
   color: #fff;
@@ -246,12 +499,15 @@
     inset: 0;
     z-index: 0;
     background-color: #2a1f18;
-    background-image: url('https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=2400&q=80');
-    background-position: center 30%;
+    // Keep faces (upper third of photo) fully visible below the sticky nav
+    background-image: url('/images/hero-lifestyle.png');
+    background-position: center top;
     background-size: cover;
     background-repeat: no-repeat;
-    transform: scale(1.04);
-    animation: hero-pan 18s $ease-soft alternate infinite;
+    // Soft zoom only — no upward drift that hides faces under the header
+    transform: scale(1.02);
+    transform-origin: center top;
+    animation: hero-pan 22s $ease-soft alternate infinite;
 
     @media (prefers-reduced-motion: reduce) {
       animation: none;
@@ -266,8 +522,8 @@
     background:
       linear-gradient(
         180deg,
-        rgba(12, 18, 14, 0.35) 0%,
-        rgba(12, 18, 14, 0.28) 40%,
+        rgba(12, 18, 14, 0.32) 0%,
+        rgba(12, 18, 14, 0.26) 40%,
         rgba(12, 18, 14, 0.72) 78%,
         rgba(12, 18, 14, 0.88) 100%
       ),
@@ -280,7 +536,7 @@
     width: min(var(--container), calc(100% - 2rem));
     margin: 0 auto;
     padding: 5.5rem 0 5.5rem;
-    max-width: 40rem;
+    max-width: 42rem;
     animation: hero-rise 0.9s $ease-out both;
 
     @media (prefers-reduced-motion: reduce) {
@@ -301,7 +557,7 @@
   &__title {
     margin: 0 0 0.85rem;
     font-family: var(--font-display);
-    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    font-size: clamp(2.6rem, 7vw, 4.4rem);
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.03em;
@@ -311,11 +567,34 @@
 
   &__lead {
     margin: 0 0 1.6rem;
-    max-width: 28rem;
-    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    max-width: 32rem;
+    font-size: clamp(1.05rem, 2vw, 1.18rem);
     line-height: 1.55;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 0.9rem;
+    align-items: flex-start;
+  }
+
+  &__primary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.55rem;
+    max-width: 18rem;
+  }
+
+  &__trust {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.78);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
   }
 
   &__cta {
@@ -323,10 +602,11 @@
     align-items: center;
     justify-content: center;
     min-width: 10.5rem;
-    padding: 0.95rem 1.7rem;
+    padding: 0.95rem 1.5rem;
     border-radius: 999px;
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     font-weight: 700;
+    text-decoration: none;
     background: #fff;
     color: var(--color-brand-dark);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
@@ -334,6 +614,7 @@
       transform $duration-base $ease-out,
       background $duration-fast $ease-soft,
       color $duration-fast $ease-soft,
+      border-color $duration-fast $ease-soft,
       box-shadow $duration-base $ease-out;
 
     &:hover,
@@ -346,6 +627,21 @@
 
     &:active {
       transform: translateY(-1px) scale(0.98);
+    }
+
+    &--secondary {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, 0.75);
+      box-shadow: none;
+
+      &:hover,
+      &:focus-visible {
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        border-color: #fff;
+        box-shadow: none;
+      }
     }
   }
 
@@ -398,10 +694,11 @@
 
 @keyframes hero-pan {
   from {
-    transform: scale(1.04) translate3d(0, 0, 0);
+    transform: scale(1.02) translate3d(0, 0, 0);
   }
   to {
-    transform: scale(1.1) translate3d(0, -1.5%, 0);
+    // Slow horizontal + scale only; keep vertical origin at top so faces stay clear of nav
+    transform: scale(1.06) translate3d(-1.2%, 0, 0);
   }
 }
 

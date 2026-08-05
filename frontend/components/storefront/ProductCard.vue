@@ -69,6 +69,7 @@
 
     <NuxtLink :to="`/products/${product._id}`" class="product-card__body">
       <h2 class="product-card__name">{{ product.name }}</h2>
+      <p v-if="benefit" class="product-card__benefit">{{ benefit }}</p>
       <p class="product-card__price">
         <template v-if="onSale">
           <span class="product-card__price-current">{{ formatMoney(chargePrice) }}</span>
@@ -95,6 +96,10 @@ const props = defineProps({
   product: {
     type: Object,
     required: true,
+  },
+  benefit: {
+    type: String,
+    default: '',
   },
 })
 

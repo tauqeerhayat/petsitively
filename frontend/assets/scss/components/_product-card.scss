@@ -160,6 +160,14 @@
     @include truncate(2);
   }
 
+  &__benefit {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.88rem;
+    line-height: 1.45;
+    @include truncate(2);
+  }
+
   &:hover &__name {
     color: var(--color-brand);
   }

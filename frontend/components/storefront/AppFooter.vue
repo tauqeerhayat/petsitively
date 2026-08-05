@@ -21,19 +21,24 @@
       </div>
 
       <div class="footer__col">
+        <h2>Company</h2>
+        <NuxtLink to="/about">Our Story</NuxtLink>
+        <NuxtLink to="/blog">Blog</NuxtLink>
+        <NuxtLink to="/pet-care-guide">Pet Care Guide</NuxtLink>
+      </div>
+
+      <div class="footer__col">
         <h2>Help</h2>
+        <NuxtLink to="/track-order">Track Order</NuxtLink>
         <NuxtLink to="/faq">FAQ</NuxtLink>
         <NuxtLink to="/shipping-returns">Shipping & returns</NuxtLink>
-        <NuxtLink to="/shipping-returns#returns">Return policy</NuxtLink>
         <NuxtLink to="/contact">Contact support</NuxtLink>
       </div>
 
       <div class="footer__col">
-        <h2>Explore</h2>
-        <NuxtLink to="/">Home</NuxtLink>
-        <NuxtLink to="/about">About</NuxtLink>
-        <NuxtLink to="/faq">FAQ</NuxtLink>
-        <NuxtLink to="/contact">Contact</NuxtLink>
+        <h2>Legal</h2>
+        <NuxtLink to="/privacy">Privacy Policy</NuxtLink>
+        <NuxtLink to="/terms">Terms</NuxtLink>
       </div>
 
       <div class="footer__col footer__social-col">
