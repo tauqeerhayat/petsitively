@@ -1,0 +1,279 @@
+@use '../abstracts' as *;
+
+.checkout-page,
+.confirmation-page {
+  padding-bottom: 3rem;
+}
+
+.checkout-page__empty-action,
+.confirmation-page__actions {
+  margin-top: 1rem;
+}
+
+.checkout-layout {
+  display: grid;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+
+  @include mq(lg) {
+    grid-template-columns: 1.4fr 0.9fr;
+    align-items: start;
+  }
+}
+
+.checkout-main {
+  display: grid;
+  gap: 1rem;
+}
+
+.checkout-account-banner {
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-accent);
+  color: var(--color-ink);
+  line-height: 1.5;
+  font-size: 0.95rem;
+
+  a {
+    color: var(--color-brand);
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+.checkout-form {
+  @include card-surface;
+  padding: 1.25rem;
+
+  &__section {
+    margin: 0 0 1.25rem;
+    padding: 0;
+    border: none;
+
+    legend {
+      margin-bottom: 0.85rem;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+  }
+
+  &__row {
+    display: grid;
+    gap: 0.85rem;
+
+    @include mq(sm) {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+  }
+
+  &__error {
+    margin: 0 0 1rem;
+    color: var(--color-danger);
+    font-weight: 600;
+  }
+
+  &__submit {
+    width: 100%;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
+
+  &__label {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font: inherit;
+    transition:
+      border-color $duration-fast $ease-soft,
+      box-shadow $duration-fast $ease-soft;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-brand);
+      box-shadow: 0 0 0 3px rgba(31, 107, 74, 0.15);
+    }
+
+    &:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+  }
+
+  &__error {
+    color: var(--color-danger);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+}
+
+.checkout-summary {
+  @include card-surface;
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+
+  h2 {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(4px);
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+
+    strong {
+      color: var(--color-ink);
+    }
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 1.1rem;
+
+    strong {
+      color: var(--color-brand);
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.confirmation {
+  max-width: 640px;
+  margin: 1rem auto 0;
+  text-align: center;
+
+  h1 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+  }
+
+  &__eyebrow {
+    margin: 0 0 0.4rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--color-brand);
+  }
+
+  &__lead {
+    margin: 0 0 1.5rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  &__card {
+    @include card-surface;
+    padding: 1rem 1.15rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+
+  &__row {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--color-border);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    span {
+      color: var(--color-muted);
+      font-size: 0.88rem;
+    }
+
+    strong {
+      font-size: 1rem;
+    }
+  }
+
+  &__status {
+    text-transform: capitalize;
+    color: var(--color-brand);
+  }
+
+  &__items-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+    text-align: left;
+  }
+
+  &__items {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    @include card-surface;
+    text-align: left;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-muted);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      strong {
+        color: var(--color-ink);
+      }
+    }
+  }
+}

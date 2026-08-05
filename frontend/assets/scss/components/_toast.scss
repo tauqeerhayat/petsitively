@@ -1,0 +1,84 @@
+// Theme overrides for vue-toastification — sage / cream / terracotta
+
+@use '../abstracts' as *;
+
+.Vue-Toastification__container {
+  z-index: $z-toast;
+}
+
+.Vue-Toastification__toast.petsitively-toast {
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-soft);
+  font-family: var(--font-body);
+  min-height: 56px;
+  padding: 14px 18px;
+  border: 1px solid transparent;
+
+  .Vue-Toastification__toast-body,
+  .petsitively-toast__body {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .Vue-Toastification__close-button {
+    opacity: 0.55;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .Vue-Toastification__progress-bar {
+    opacity: 0.45;
+  }
+}
+
+.Vue-Toastification__toast--success.petsitively-toast {
+  background: var(--color-brand);
+  color: #fff;
+  border-color: var(--color-brand-dark);
+
+  .Vue-Toastification__close-button {
+    color: #fff;
+  }
+
+  .Vue-Toastification__progress-bar {
+    background: rgba(255, 255, 255, 0.55);
+  }
+}
+
+.Vue-Toastification__toast--error.petsitively-toast {
+  background: #f6e4d8;
+  color: #7a3a1f;
+  border-color: #e8c4a8;
+
+  .Vue-Toastification__close-button {
+    color: #7a3a1f;
+  }
+
+  .Vue-Toastification__progress-bar {
+    background: var(--color-accent);
+  }
+}
+
+.Vue-Toastification__toast--info.petsitively-toast {
+  background: var(--color-bg-accent);
+  color: var(--color-ink);
+  border-color: var(--color-border);
+
+  .Vue-Toastification__close-button {
+    color: var(--color-muted);
+  }
+
+  .Vue-Toastification__progress-bar {
+    background: var(--color-brand);
+  }
+}
+
+.Vue-Toastification__toast--default.petsitively-toast,
+.Vue-Toastification__toast--warning.petsitively-toast {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  border-color: var(--color-border);
+}

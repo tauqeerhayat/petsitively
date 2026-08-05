@@ -1,0 +1,215 @@
+@use '../abstracts' as *;
+
+.home-faq {
+  padding: 3rem 0 3.5rem;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-accent);
+
+  &__intro {
+    margin-bottom: 1.5rem;
+    max-width: 36rem;
+  }
+
+  &__eyebrow {
+    margin: 0 0 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-brand);
+  }
+
+  h2 {
+    margin: 0 0 0.55rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+
+  &__lead {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+
+  &__body {
+    max-width: 720px;
+  }
+
+  &__footer {
+    margin-top: 1.35rem;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 700;
+    color: var(--color-brand);
+    transition: gap $duration-fast $ease-soft;
+
+    &:hover,
+    &:focus-visible {
+      gap: 0.55rem;
+    }
+  }
+}
+
+.faq-page {
+  &__search {
+    margin-bottom: 1.75rem;
+    max-width: 720px;
+  }
+
+  &__search-label {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
+  &__search-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font: inherit;
+    font-size: 1rem;
+    transition:
+      border-color $duration-fast $ease-soft,
+      box-shadow $duration-fast $ease-soft;
+
+    &::placeholder {
+      color: var(--color-muted);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-brand);
+      box-shadow: 0 0 0 3px rgba(31, 107, 74, 0.15);
+    }
+  }
+
+  &__groups {
+    display: grid;
+    gap: 2rem;
+    max-width: 720px;
+  }
+
+  &__group-title {
+    margin: 0 0 0.85rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+  }
+
+  &__empty {
+    margin: 0;
+    padding: 1.25rem 1.35rem;
+    max-width: 720px;
+    @include card-surface;
+    color: var(--color-muted);
+  }
+}
+
+.faq-accordion {
+  display: grid;
+  gap: 0.65rem;
+
+  &__item {
+    @include card-surface;
+    overflow: hidden;
+    transition: box-shadow $duration-fast $ease-soft;
+
+    &.is-open {
+      box-shadow: var(--shadow-lift);
+    }
+  }
+
+  &__heading {
+    margin: 0;
+  }
+
+  &__trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    color: var(--color-ink);
+    font: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.35;
+    transition: background $duration-fast $ease-soft;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(31, 107, 74, 0.05);
+    }
+  }
+
+  &__question {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 1.15rem;
+    height: 1.15rem;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: var(--color-brand);
+      border-radius: 1px;
+      transition: transform $duration-base $ease-out, opacity $duration-fast $ease-soft;
+    }
+
+    &::before {
+      width: 100%;
+      height: 2px;
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      width: 2px;
+      height: 100%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__item.is-open &__icon::after {
+    opacity: 0;
+    transform: translate(-50%, -50%) scaleY(0);
+  }
+
+  &__panel {
+    padding: 0 1.15rem 1.1rem;
+  }
+
+  &__answer {
+    margin: 0;
+    border-top: 1px solid var(--color-border);
+    padding-top: 0.85rem;
+    color: var(--color-muted);
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+}

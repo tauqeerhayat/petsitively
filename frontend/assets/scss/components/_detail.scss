@@ -1,0 +1,116 @@
+@use '../abstracts' as *;
+
+.detail {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem 0 3rem;
+
+  @include mq(md) {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+  }
+
+  &__media {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--color-bg-accent);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    min-height: 280px;
+
+    img,
+    :deep(img) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+      display: block;
+    }
+
+    &--placeholder {
+      display: grid;
+      place-content: center;
+      justify-items: center;
+      gap: 0.5rem;
+      min-height: 320px;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+
+      svg {
+        opacity: 0.72;
+      }
+    }
+  }
+
+  &__sale-badge {
+    position: absolute;
+    top: 0.85rem;
+    left: 0.85rem;
+    z-index: 2;
+    padding: 0.35rem 0.65rem;
+    border-radius: 999px;
+    background: var(--color-danger);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  }
+
+  &__content h1 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+  }
+
+  &__category-link {
+    color: var(--color-brand);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+
+    &:hover {
+      color: var(--color-brand-dark);
+    }
+  }
+
+  &__price {
+    margin: 0 0 1rem;
+    color: var(--color-brand);
+    font-size: 1.75rem;
+    font-weight: 700;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.55rem;
+  }
+
+  &__price-current {
+    color: var(--color-brand);
+  }
+
+  &__price-compare {
+    color: var(--color-muted);
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-decoration: line-through;
+  }
+
+  &__description {
+    margin: 0 0 1.5rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+    white-space: pre-wrap;
+  }
+}

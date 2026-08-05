@@ -1,0 +1,40 @@
+// Design tokens — keep CSS custom properties for runtime theming,
+// SCSS vars for compile-time reuse (breakpoints, easings, z-index).
+
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1200px;
+
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+$duration-fast: 160ms;
+$duration-base: 200ms;
+$duration-slow: 520ms;
+
+$z-header: 20;
+$z-chat: 30;
+$z-toast: 40;
+
+:root {
+  --color-bg: #f3f7f4;
+  --color-bg-accent: #e5f0e9;
+  --color-surface: #ffffff;
+  --color-ink: #1c2b22;
+  --color-muted: #5a6b61;
+  --color-brand: #1f6b4a;
+  --color-brand-dark: #155238;
+  --color-accent: #e08a3c;
+  --color-danger: #9b2c2c;
+  --color-danger-bg: #fff5f5;
+  --color-danger-border: #e2b6b6;
+  --color-border: #d5e2da;
+  --shadow-soft: 0 10px 30px rgba(28, 43, 34, 0.08);
+  --shadow-lift: 0 16px 36px rgba(28, 43, 34, 0.12);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --header-bg: rgba(243, 247, 244, 0.85);
+  --container: 1120px;
+}

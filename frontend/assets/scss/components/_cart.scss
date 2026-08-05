@@ -1,0 +1,156 @@
+@use '../abstracts' as *;
+
+.cart-page {
+  padding-bottom: 3rem;
+}
+
+.cart-list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 0.85rem 1rem;
+  align-items: center;
+  padding: 1rem;
+  @include card-surface;
+
+  @include mq(md) {
+    grid-template-columns: 96px 1.4fr auto auto auto;
+    gap: 1rem;
+  }
+
+  &__media {
+    grid-row: span 2;
+
+    @include mq(md) {
+      grid-row: auto;
+    }
+  }
+
+  &__image {
+    width: 88px;
+    height: 88px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    background: var(--color-bg-accent);
+
+    @include mq(md) {
+      width: 96px;
+      height: 96px;
+    }
+
+    &--placeholder {
+      display: grid;
+      place-items: center;
+      color: var(--color-muted);
+      font-size: 0.75rem;
+      text-align: center;
+      background: var(--color-bg-accent);
+
+      svg {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: color $duration-fast $ease-soft;
+
+    &:hover {
+      color: var(--color-brand);
+    }
+  }
+
+  &__price {
+    margin: 0.2rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+  }
+
+  &__qty {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  &__line-total {
+    margin: 0;
+    font-weight: 700;
+    color: var(--color-brand);
+  }
+
+  &__remove {
+    justify-self: start;
+    color: var(--color-danger);
+    border-color: var(--color-danger-border);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-danger-bg);
+      color: var(--color-danger);
+      border-color: var(--color-danger);
+    }
+  }
+}
+
+.qty-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--color-ink);
+  transition:
+    border-color $duration-fast $ease-soft,
+    color $duration-fast $ease-soft;
+
+  &:hover {
+    border-color: var(--color-brand);
+    color: var(--color-brand);
+  }
+}
+
+.qty-value {
+  min-width: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.cart-summary {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  @include card-surface;
+
+  @include mq(md) {
+    max-width: 420px;
+    margin-left: auto;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.15rem;
+
+    strong {
+      color: var(--color-brand);
+      font-size: 1.35rem;
+    }
+  }
+
+  &__checkout {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Nuxt / build
+.nuxt/
+.output/
+.data/
+dist/
+.cache/
+
+# Logs & OS
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / IDE
+.cursor/
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Misc
+NUL
+*.map
+coverage/
+.temp/
+.tmp/

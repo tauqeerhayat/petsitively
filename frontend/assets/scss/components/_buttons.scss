@@ -1,0 +1,117 @@
+@use '../abstracts' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.4rem;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 160ms $ease-soft,
+    transform 160ms $ease-soft,
+    color 160ms $ease-soft,
+    border-color 160ms $ease-soft,
+    box-shadow 160ms $ease-soft;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  &--primary {
+    background: var(--color-brand);
+    color: #fff;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-brand-dark);
+      color: #fff;
+    }
+
+    &:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    padding: 0.55rem 0.95rem;
+    font-size: 0.9rem;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-danger);
+      border-color: var(--color-danger-border);
+      background: var(--color-danger-bg);
+    }
+  }
+
+  &--sm {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  &--danger {
+    color: var(--color-danger);
+    border-color: var(--color-danger-border);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-danger-bg);
+      color: var(--color-danger);
+      border-color: var(--color-danger);
+    }
+  }
+
+  &--icon {
+    width: 2.15rem;
+    height: 2.15rem;
+    padding: 0;
+    border-radius: 10px;
+
+    svg {
+      display: block;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// NuxtLink/anchor buttons — beat parent `a { color: ... }` rules
+a.btn {
+  text-decoration: none;
+}
+
+a.btn--primary,
+a.btn.btn--primary {
+  color: #fff;
+
+  &:hover,
+  &:focus-visible,
+  &:active,
+  &.router-link-active {
+    color: #fff;
+  }
+}
+
+a.btn--ghost,
+a.btn.btn--ghost {
+  color: var(--color-muted);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-danger);
+  }
+}
